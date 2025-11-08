@@ -1,3 +1,5 @@
+This is a copy. View the [original source](https://github.com/coinbase/x402/blob/main/specs/x402-specification.md).
+
 # X402 Protocol Specification
 
 **Document Scope**
