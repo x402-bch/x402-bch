@@ -38,7 +38,6 @@ Key differentiators from the Base/USDC reference implementation:
 - **Batch debiting**: A single UTXO funds multiple requests by decrementing an off-chain ledger maintained by the Facilitator.
 - **Lightweight signatures**: BCH `signMessage`/`verifyMessage` primitives authenticate authorization payloads instead of EIP-712.
 - **UTXO introspection**: Facilitators query blockchain state and persist UTXO balances in LevelDB for debiting.
-- **Fast Settlement**: The [Double Spend Proof](https://upgradespecs.bitcoincashnode.org/dsproof/) feature, unique to the Bitcoin Cash blockchain, is leveraged for fast, secure, zero-confirmation settlement of payments.
 
 ---
 
