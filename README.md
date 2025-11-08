@@ -9,4 +9,4 @@ A complete technical comparison can be done between the [x402 specification](./s
 - In both, there are three main actors in the protocol: Clients, Servers, and Facilitators
   - Servers offload all the blockchain-specific activity to the Facilitator
 - In x402-bch, the Facilitator does not need its own wallet. Clients pay Servers directly, and Facilitators validate payment.
-- Clients send a 'batch' payment to the Server, then debit against that payment with subsequent calls. This significantly reduces the number of on-chain transactions.
+- Clients send a 'batch' payment to the Server, then debit against that payment with subsequent calls. This significantly reduces the number of on-chain transactions, and thus reduces fees incurred by the Client.
