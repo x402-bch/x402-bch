@@ -1,6 +1,6 @@
 # x402-bch Client Demo
 
-This directory contains a reference client for the Bitcoin Cash adaptation of the x402 protocol. The client script (`bch-client.js`) exercises the end-to-end flow described in the core [`x402` specification](../../../x402-bch/specs/x402-specification.md) and in the BCH-focused [`x402-bch` specification](../../../x402-bch/specs/x402-bch-specification.md). It showcases how an HTTP consumer can satisfy `402 Payment Required` responses by funding and reusing BCH UTXOs through a Facilitator.
+This directory contains a reference client for the Bitcoin Cash adaptation of the x402 protocol. The client script (`bch-client.js`) exercises the end-to-end flow described in the core [x402 specification](../../specs/x402-specification.md) and in the BCH-focused [x402-bch specification](../../specs/x402-bch-specification.md). It showcases how an HTTP consumer can satisfy `402 Payment Required` responses by funding and reusing BCH UTXOs through a Facilitator.
 
 ## Where the Client Fits
 - **Clients** originate HTTP requests, learn pricing from `402` responses, and present signed BCH payment payloads.
@@ -18,25 +18,25 @@ This client demonstrates the Client role: it detects `402` responses, funds a BC
 ## Prerequisites
 - Node.js 20 LTS or newer (required for ES module compatibility).
 - npm 9+ (ships with Node 20).
-- Access to an x402-bch Resource Server and Facilitator (see `../../facilitator` and `../../server` directories for demos).
+- Access to an x402-bch Resource Server and Facilitator (see [Facilitator](../facilitator/) and [Server](../server/) directories for demos).
 
 ## Installation
 ```bash
-cd /home/trout/work/personal/x402/x402-prototype/02-bch-prototype/client
+cd examples/client
 npm install
 ```
 
 ## Configuration
-Create a `.env` file in this directory (or export environment variables) with the following options:
+Copy the `.env-local` file as `.env`. Customize the environment variables as needed:
 
 ```
-PRIVATE_KEY=Base58Check_WIF_private_key   # BCH key that will fund the reusable UTXO
+PRIVATE_KEY=<Your own private key, starts with 'L' or 'K'>   # BCH key that will fund the reusable UTXO
 RESOURCE_SERVER_URL=http://localhost:4021 # URL of the x402-enabled resource server
 ENDPOINT_PATH=/weather                    # Resource path to call
 PAYMENT_AMOUNT_SATS=2000                  # Satoshis to send when funding a new UTXO
 ```
 
-Defaults are provided in `bch-client.js` for quick local testing, but a funded BCH key is required for real payments.
+To generate your own key pair, you can go to [wallet.psfoundation.info](https://wallet.psfoundation.info). Navigate to the `Wallet` page.
 
 ## Running the Demo
 ```bash
