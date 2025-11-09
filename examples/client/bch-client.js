@@ -5,7 +5,7 @@
 // Global npm libraries
 import { config } from 'dotenv'
 import axios from 'axios'
-import { createBCHSigner, withPaymentInterceptor } from './axios-402-handler.js'
+import { createSigner, withPaymentInterceptor } from 'x402-bch-axios'
 
 async function main () {
   try {
@@ -42,7 +42,7 @@ async function main () {
     }
 
     // Create a signer from the private key.
-    const signer = await createBCHSigner(privateKey, paymentAmountSats)
+    const signer = await createSigner(privateKey, paymentAmountSats)
 
     // Wrap axios with the payment interceptor for automatic payment and
     // retry when the 402 error is encountered.

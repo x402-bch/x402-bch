@@ -15,7 +15,8 @@
     "@chris.troutner/retry-queue": "1.0.11",
     "axios": "1.13.1",
     "dotenv": "17.2.3",
-    "minimal-slp-wallet": "6.1.0"
+    "minimal-slp-wallet": "6.1.0",
+    "x402-bch-axios": "1.1.1"
   },
   "devDependencies": {
     "standard": "17.1.2"
