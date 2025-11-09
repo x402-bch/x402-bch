@@ -8,8 +8,6 @@
     until the amount is exhausted.
 */
 
-export const DEFAULT_MIN_CONFIRMATIONS = 1
-
 class FacilitatorUseCase {
   constructor (localConfig = {}) {
     this.adapters = localConfig.adapters
