@@ -44,7 +44,7 @@ The script performs three steps:
 Facilitator responses (such as remaining satoshis) are visible in the console output. You can adjust `PAYMENT_AMOUNT_SATS` to experiment with batching multiple paid calls.
 
 ## Related Components
-- `axios-402-handler.js`: Wraps Axios with interceptors that detect `402` responses, build BCH payment payloads, and manage retries. This library will be exported to the [x402-bch-axios library](https://github.com/x402-bch/x402-bch-axios).
+- [x402-bch-axios library](https://github.com/x402-bch/x402-bch-axios): Wraps Axios with interceptors that detect `402` responses, build BCH payment payloads, and manage retries.
 - [Facilitator](../facilitator/): Reference Facilitator service that verifies BCH payment payloads and maintains UTXO ledgers.
 - [Server](../server/): Example resource server that publishes BCH pricing metadata and delegates verification to the Facilitator.
 
@@ -54,8 +54,3 @@ Facilitator responses (such as remaining satoshis) are visible in the console ou
 - **Network mismatches**: Confirm the server and client are both set to use the `bch` network and the `utxo` scheme.
 
 For full protocol details, consult the [x402-bch specification](../../specs/x402-bch-specification.md).
-
-## Future Work
-
-- `axios-402-handler.js` will be abstracted and packaged into it's own library, similar to [x402-axios](https://www.npmjs.com/package/x402-axios).
-- Unit tests will be added for this example

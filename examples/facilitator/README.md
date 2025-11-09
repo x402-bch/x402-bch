@@ -25,7 +25,7 @@ This example implements the Facilitator role. It exposes the canonical `/facilit
 
 ## Installation
 ```bash
-cd /home/trout/work/personal/x402/x402-bch/examples/facilitator
+cd x402/x402-bch/examples/facilitator
 npm install
 ```
 
