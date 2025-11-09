@@ -24,16 +24,15 @@ export default {
   // Logging level
   logLevel: process.env.LOG_LEVEL || 'info',
 
-  // BCH Facilitator configuration
-  bchPrivateKey: process.env.BCH_PRIVATE_KEY,
-  network: process.env.NETWORK || 'bch',
-  minConfirmations: parseInt(process.env.MIN_CONFIRMATIONS || '1', 10),
-  restURL: process.env.BCH_REST_URL,
-  apiToken: process.env.BCH_API_TOKEN,
-  authPass: process.env.BCH_AUTH_PASS,
-
   // Version
   version,
 
-  serverBchAddress: process.env.SERVER_BCH_ADDRESS || 'bitcoincash:qqlrzp23w08434twmvr4fxw672whkjy0py26r63g3d'
+  // Resource Server BCH address. This is the address that receives payments.
+  serverBchAddress: process.env.SERVER_BCH_ADDRESS || 'bitcoincash:qqlrzp23w08434twmvr4fxw672whkjy0py26r63g3d',
+
+  // BCH Infrastructure Information
+  // consumer-api = ipfs-bch-wallet-service, rest-api = bch-api
+  apiType: process.env.API_TYPE || 'consumer-api',
+  // Free API servers here: https://consumers.psfoundation.info/consumers.json
+  bchServerUrl: process.env.BCH_SERVER_URL || 'http://free-bch.fullstack.cash'
 }

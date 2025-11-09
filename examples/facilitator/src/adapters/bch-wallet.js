@@ -12,7 +12,10 @@ import config from '../config/index.js'
 class BCHWalletAdapter {
   constructor (localConfig = {}) {
     // Encapsulate dependencies
-    this.msWallet = new MinimalBCHWallet()
+    this.msWallet = new MinimalBCHWallet(undefined, {
+      interface: config.apiType,
+      restURL: config.bchServerUrl
+    })
     this.bchjs = this.msWallet.bchjs
     this.config = config
     this.retryQueue = new RetryQueue()

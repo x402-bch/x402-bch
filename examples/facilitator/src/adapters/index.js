@@ -15,14 +15,7 @@ class Adapters {
     // Encapsulate dependencies
     this.config = config
     this.logger = new Logger({ logLevel: config.logLevel })
-    this.bchWallet = new BCHWalletAdapter({
-      bchPrivateKey: localConfig.bchPrivateKey || config.bchPrivateKey,
-      network: localConfig.network || config.network,
-      minConfirmations: localConfig.minConfirmations || config.minConfirmations,
-      restURL: localConfig.restURL || config.restURL,
-      apiToken: localConfig.apiToken || config.apiToken,
-      authPass: localConfig.authPass || config.authPass
-    })
+    this.bchWallet = new BCHWalletAdapter()
     this.levelDB = new LevelDBAdapter()
   }
 
