@@ -5,7 +5,7 @@
 // Global npm libraries
 import { config } from 'dotenv'
 import express from 'express'
-import { paymentMiddleware } from './src/middleware/payment.js'
+import { paymentMiddleware } from 'x402-bch-express'
 
 async function startServer () {
   try {
@@ -26,9 +26,7 @@ async function startServer () {
         payTo,
         {
           'GET /weather': {
-            // BCH amount in satoshis (placeholder)
-            price: '$0.001',
-            network: 'bch',
+            minAmountRequired: 1000,
             config: {
               description: 'Access to weather data'
             }
@@ -43,6 +41,7 @@ async function startServer () {
 
     // Weather endpoint
     app.get('/weather', (req, res) => {
+      console.log('Serving /weather endpoint')
       res.send({
         report: {
           weather: 'sunny',

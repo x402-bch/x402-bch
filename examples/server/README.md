@@ -7,10 +7,10 @@ This directory contains the reference **Server** implementation for the Bitcoin 
 - **Servers** (this project) guard API routes, define resource pricing, and call the Facilitator to verify payment payloads.
 - **Facilitators** validate BCH signatures/UTXOs and keep track of remaining prepaid balances.
 
-This example implements the Server role using Express plus a reusable `paymentMiddleware` to advertise payment requirements and enforce verification before the request reaches the handler.
+This example implements the Server role using Express plus the reusable `paymentMiddleware` exported by the local `x402-bch-express` library to advertise payment requirements and enforce verification before the request reaches the handler.
 
 ## Features
-- Ships with the BCH-specific `paymentMiddleware` that inspects routes, constructs `PaymentRequirements`, and communicates with the Facilitator `/verify` endpoint. This middleware will soon be exported to the [x402-bch-express library](https://github.com/x402-bch/x402-bch-express).
+- Leverages the BCH-specific `paymentMiddleware` from the `x402-bch-express` package that inspects routes, constructs `PaymentRequirements`, and communicates with the Facilitator `/verify` endpoint.
 - Demonstrates fine-grained pricing metadata per route (HTTP verb + path) while sharing global defaults such as network and Facilitator URL.
 - Automatically responds with HTTP `402` and `accepts` metadata when the `X-PAYMENT` header is missing or invalid.
 - Forwards parsed payment payloads to the Facilitator and only allows the request through when verification succeeds.

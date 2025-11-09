@@ -14,7 +14,8 @@
   "dependencies": {
     "dotenv": "17.2.3",
     "express": "5.1.0",
-    "minimal-slp-wallet": "6.1.0"
+    "minimal-slp-wallet": "6.1.0",
+    "x402-bch-express": "1.1.0"
   },
   "devDependencies": {
     "standard": "17.1.2"
