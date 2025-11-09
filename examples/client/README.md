@@ -44,16 +44,16 @@ The script performs three steps:
 Facilitator responses (such as remaining satoshis) are visible in the console output. You can adjust `PAYMENT_AMOUNT_SATS` to experiment with batching multiple paid calls.
 
 ## Related Components
-- `axios-402-handler.js`: Wraps Axios with interceptors that detect `402` responses, build BCH payment payloads, and manage retries.
-- `../../facilitator`: Reference Facilitator service that verifies BCH payment payloads and maintains UTXO ledgers.
-- `../../server`: Example resource server that publishes BCH pricing metadata and delegates verification to the Facilitator.
+- `axios-402-handler.js`: Wraps Axios with interceptors that detect `402` responses, build BCH payment payloads, and manage retries. This library will be exported to the [x402-bch-axios library](https://github.com/x402-bch/x402-bch-axios).
+- [Facilitator](../facilitator/): Reference Facilitator service that verifies BCH payment payloads and maintains UTXO ledgers.
+- [Server](../server/): Example resource server that publishes BCH pricing metadata and delegates verification to the Facilitator.
 
 ## Troubleshooting
 - **402 loops**: Ensure the private key was funded and that the Facilitator recognizes the `payTo` address advertised by the server.
 - **Signature errors**: Verify the `PRIVATE_KEY` matches the `from` address and that your environment uses UTF-8 encoding.
 - **Network mismatches**: Confirm the server and client are both set to use the `bch` network and the `utxo` scheme.
 
-For full protocol details, consult `../../../x402-bch/specs/x402-bch-specification.md`.
+For full protocol details, consult the [x402-bch specification](../../specs/x402-bch-specification.md).
 
 ## Future Work
 
