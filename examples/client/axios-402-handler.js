@@ -5,12 +5,12 @@
 
 // Global libraries
 // import { randomBytes } from 'crypto'
-import { createRequire } from 'module'
+// import { createRequire } from 'module'
 import BCHWallet from 'minimal-slp-wallet'
 import RetryQueue from '@chris.troutner/retry-queue'
 
-const require = createRequire(import.meta.url)
-const BCHJS = require('@psf/bch-js')
+// const require = createRequire(import.meta.url)
+// const BCHJS = require('@psf/bch-js')
 
 // Global variables
 const currentUtxo = {
@@ -26,7 +26,8 @@ const currentUtxo = {
  * @returns {Object} Signer object with signMessage method and address property
  */
 export function createBCHSigner (privateKeyWIF, paymentAmountSats) {
-  const bchjs = new BCHJS()
+  const msWallet = new BCHWallet()
+  const bchjs = msWallet.bchjs
 
   // Create ECPair from WIF
   const ecpair = bchjs.ECPair.fromWIF(privateKeyWIF)
@@ -127,7 +128,7 @@ function selectPaymentRequirements (accepts) {
   return bchRequirements[0]
 }
 
-async function sendPayment (signer, paymentRequirements) {
+async function sendPayment (signer, paymentRequirements, bchServer) {
   try {
     const wif = signer.wif
 
@@ -137,7 +138,13 @@ async function sendPayment (signer, paymentRequirements) {
     const paymentAmountSats = signer.paymentAmountSats
 
     // Initialize the wallet with the private key.
-    const bchWallet = new BCHWallet(wif)
+    const { apiType, bchServerURL } = bchServer
+    console.log('apiType: ', apiType)
+    console.log('bchServerURL: ', bchServerURL)
+    const bchWallet = new BCHWallet(wif, {
+      interface: apiType,
+      restURL: bchServerURL
+    })
     await bchWallet.initialize()
 
     const retryQueue = new RetryQueue()
@@ -159,7 +166,7 @@ async function sendPayment (signer, paymentRequirements) {
       satsSent: paymentAmountSats
     }
   } catch (err) {
-    console.error('Error in sendPayment()')
+    console.error('Error in sendPayment(): ', err)
     throw err
   }
 }
@@ -172,7 +179,7 @@ async function sendPayment (signer, paymentRequirements) {
  * @param {Object} signer - BCH signer object from createBCHSigner
  * @returns {Object} Modified axios instance
  */
-export function withPaymentInterceptor (axiosInstance, signer) {
+export function withPaymentInterceptor (axiosInstance, signer, bchServer) {
   axiosInstance.interceptors.response.use(
     response => response,
     async (error) => {
@@ -210,7 +217,7 @@ export function withPaymentInterceptor (axiosInstance, signer) {
           console.log('Sending a new payment to the server.')
 
           // Send a new payment to the server.
-          const payment = await sendPayment(signer, paymentRequirements)
+          const payment = await sendPayment(signer, paymentRequirements, bchServer)
           txid = payment.txid
           vout = payment.vout
           satsLeft = payment.satsSent - cost

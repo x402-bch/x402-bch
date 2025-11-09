@@ -12,11 +12,17 @@ async function main () {
     // Load environment variables
     config()
 
+    // Ensure all required environment variables have needed values.
+
     // Fund the private key by sending BCH to: bitcoincash:qz9s2mccqamzppfq708cyfde5ejgmsr9hy7r3unmkk
     const privateKey = process.env.PRIVATE_KEY || 'L1eYaneXDDXy8VDig4Arwe8wYHbhtsA5wuQvwsKwhaYeneoZuKG4'
+
     const baseURL = process.env.RESOURCE_SERVER_URL || 'http://localhost:4021'
     const endpointPath = process.env.ENDPOINT_PATH || '/weather'
     const paymentAmountSats = parseInt(process.env.PAYMENT_AMOUNT_SATS) || 2000
+
+    const apiType = process.env.API_TYPE || 'consumer-api'
+    const bchServerURL = process.env.BCH_SERVER_URL || 'http://free-bch.fullstack.cash'
 
     if (!baseURL || !privateKey || !endpointPath) {
       console.error('Missing required environment variables')
@@ -44,7 +50,8 @@ async function main () {
       axios.create({
         baseURL
       }),
-      signer
+      signer,
+      { apiType, bchServerURL }
     )
 
     // Step 2: Make a second call with a payment. Generate a new UTXO.

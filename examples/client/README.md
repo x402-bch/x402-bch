@@ -29,13 +29,6 @@ npm install
 ## Configuration
 Copy the `.env-local` file as `.env`. Customize the environment variables as needed:
 
-```
-PRIVATE_KEY=<Your own private key, starts with 'L' or 'K'>   # BCH key that will fund the reusable UTXO
-RESOURCE_SERVER_URL=http://localhost:4021 # URL of the x402-enabled resource server
-ENDPOINT_PATH=/weather                    # Resource path to call
-PAYMENT_AMOUNT_SATS=2000                  # Satoshis to send when funding a new UTXO
-```
-
 To generate your own key pair, you can go to [wallet.psfoundation.info](https://wallet.psfoundation.info). Navigate to the `Wallet` page.
 
 ## Running the Demo
