@@ -16,6 +16,9 @@ A complete technical comparison can be done between the [x402 specification](./s
 An example implementation is available in the [examples directory](./examples).
 
 <br />
+
 This video introduces the code and concepts in this repository:
+
 <br />
+
 [![x402-bch Introduction](https://img.youtube.com/vi/3MHP8AvLlwQ/0.jpg))](https://youtu.be/3MHP8AvLlwQ)
