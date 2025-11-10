@@ -1,3 +1,5 @@
+![x402-bch logo](./x402-bch-logo.png)
+
 # x402 payments protocol for Bitcoin Cash
 
 This repository is modeled on the original [x402 repository](https://github.com/coinbase/x402/tree/main) created by Coinbase. While their specifications and examples for x402 implementation is focused the USDC stablecoin on the Base blockchain, this repository is focused on an implementation for the Bitcoin Cash (BCH) blockchain. The techniques used by the x402-bch protocol can be adapted for any L1 UTXO-based blockchain.
@@ -12,3 +14,7 @@ A complete technical comparison can be done between the [x402 specification](./s
 - Clients send a 'batch' payment to the Server, then debit against that payment with subsequent calls. This significantly reduces the number of on-chain transactions, and thus reduces fees incurred by the Client.
 
 An example implementation is available in the [examples directory](./examples).
+
+<br />
+<br />
+<iframe width="639" height="359" src="https://www.youtube.com/embed/3MHP8AvLlwQ" title="The Easiest Way to Make NFTs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>
