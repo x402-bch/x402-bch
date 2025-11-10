@@ -1,4 +1,4 @@
-![x402-bch logo](./x402-bch-logo.png)
+<img src="./x402-bch-logo.png" style='width: 300px;' />
 
 # x402 payments protocol for Bitcoin Cash
 
@@ -17,4 +17,5 @@ An example implementation is available in the [examples directory](./examples).
 
 <br />
 <br />
-<iframe width="639" height="359" src="https://www.youtube.com/embed/3MHP8AvLlwQ" title="The Easiest Way to Make NFTs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>
+
+[![x402-bch Introduction](https://img.youtube.com/vi/3MHP8AvLlwQ/0.jpg))](https://youtu.be/3MHP8AvLlwQ)
