@@ -25,7 +25,7 @@ The document covers:
 - Server-specific pricing strategies or dynamic pricing logic
 - Facilitator infrastructure scaling and monitoring guidance
 
-**Architecture**
+## Architecture
 
 x402-bch retains the core x402 actor model—Clients, Servers, and Facilitators—while reorienting settlement around BCH UTXOs:
 
@@ -67,7 +67,7 @@ Repeated calls reuse the same UTXO until the Facilitator's ledger indicates the 
 
 - **Client**: Manages BCH keys, broadcasts funding transactions, and signs authorization payloads that reference funded UTXOs. Responsible for tracking when a new UTXO is needed.
 - **Resource Server**: Exposes HTTP endpoints and enforces payment requirements. Delegates BCH validation to the Facilitator while remaining the ultimate recipient of funds.
-- **Facilitator**: Stateless with respect to custody, but stateful regarding UTXO accounting. Verifies signatures, checks blockchain state, tracks remaining satoshis for each `(txid, vout)`, and returns verification decisions to the Server.
+- **Facilitator**: Stateless with respect to custody, but stateful regarding UTXO accounting. Verifies signatures, checks blockchain state, tracks remaining satoshis for each UTXO `(txid, vout)`, and returns verification decisions to the Server.
 
 ---
 
@@ -607,6 +607,6 @@ Future support for SLP tokens or other BCH-based assets may be added through sch
 
 | Version | Date       | Changes                                                           | Author                    |
 | ------- | ---------- | ----------------------------------------------------------------- | ------------------------- |
-| v2.0    | 2025-12-09 | Protocol v2: CAIP-2 networks, restructured PaymentPayload/Required, ResourceInfo separation, extensions support, header name changes | x402-bch Working Group |
-| v0.1    | 2025-11-08 | Initial BCH adaptation draft derived from reference implementation | x402-bch Working Group   |
+| v2.1    | 2025-12-23 | Protocol v2: CAIP-2 networks, restructured PaymentPayload/Required, ResourceInfo separation, extensions support, header name changes | Chris Troutner |
+| v0.1    | 2025-11-08 | Initial BCH adaptation draft derived from reference implementation | Chris Troutner   |
 
