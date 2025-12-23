@@ -16,8 +16,6 @@ The Server uses the [express framework](https://www.npmjs.com/package/express) f
 
 ## Facilitator
 
-The Facilitator example is based on [x402-soverign](https://github.com/Dhaiwat10/x402-sovereign). This handles all blockchain-specific business logic so the Server does not need to. To handle Bitcoin Cash blockchain access, it needs to have access to an instance of [ipfs-bch-wallet-consumer](https://github.com/Permissionless-Software-Foundation/ipfs-bch-wallet-consumer) or [bch-api](https://github.com/Permissionless-Software-Foundation/bch-api), both of which are part of the [CashStack](https://cashstack.info).
+The Facilitator can be found in the [x402-bch-facilitator code repository](https://github.com/x402-bch/x402-bch-facilitator). This handles all blockchain-specific business logic so the Server does not need to. To handle Bitcoin Cash blockchain access, it needs to have access to an instance of [ipfs-bch-wallet-consumer](https://github.com/Permissionless-Software-Foundation/ipfs-bch-wallet-consumer) or [bch-api](https://github.com/Permissionless-Software-Foundation/bch-api), both of which are part of the [Cash Stack](https://cashstack.info).
 
 If it is connected to bch-api, payments can be checked against [Double Spend Proofs](https://upgradespecs.bitcoincashnode.org/dsproof/). This allows for secure zero-confirmation payments.
-
-- [Review Facilitator README](./facilitator/)

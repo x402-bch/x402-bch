@@ -18,7 +18,7 @@ This example implements the Server role using Express plus the reusable `payment
 ## Prerequisites
 - Node.js 20 LTS or newer (required for native ES modules).
 - npm 9+ (bundled with Node 20).
-- An instance of the x402-bch Facilitator (see [Facilitator](../facilitator/)) reachable over HTTP.
+- An instance of the x402-bch Facilitator (see [Facilitator](https://github.com/x402-bch/x402-bch-facilitator)) reachable over HTTP.
 - A BCH cash address controlled by the server operator to receive funding UTXOs.
 
 ## Installation
@@ -53,7 +53,7 @@ When a request is made to `/weather` without an `X-PAYMENT` header, the server r
 When a client retries with a valid payment header—typically after contacting the Facilitator for quoting/signing—the server calls `/facilitator/verify`. If the Facilitator confirms `isValid: true`, the route handler responds with the JSON weather payload.
 
 ## Integration with the Ecosystem
-- Works alongside the [Facilitator demo](../facilitator) that manages BCH validation and prepaid balances.
+- Works alongside the [Facilitator demo](https://github.com/x402-bch/x402-bch-facilitator) that manages BCH validation and prepaid balances.
 - Designed to interoperate with the [Client demo](../client) or any HTTP client that implements the x402-bch `utxo` scheme.
 - Shows how to migrate a resource from traditional authentication to payment-gated access while keeping business logic isolated from payment verification.
 

@@ -18,7 +18,7 @@ This client demonstrates the Client role: it detects `402` responses, funds a BC
 ## Prerequisites
 - Node.js 20 LTS or newer (required for ES module compatibility).
 - npm 9+ (ships with Node 20).
-- Access to an x402-bch Resource Server and Facilitator (see [Facilitator](../facilitator/) and [Server](../server/) directories for demos).
+- Access to an x402-bch Resource Server and Facilitator (see [Facilitator](https://github.com/x402-bch/x402-bch-facilitator) and [Server](../server/) directories for demos).
 
 ## Installation
 ```bash
@@ -45,7 +45,7 @@ Facilitator responses (such as remaining satoshis) are visible in the console ou
 
 ## Related Components
 - [x402-bch-axios library](https://github.com/x402-bch/x402-bch-axios): Wraps Axios with interceptors that detect `402` responses, build BCH payment payloads, and manage retries.
-- [Facilitator](../facilitator/): Reference Facilitator service that verifies BCH payment payloads and maintains UTXO ledgers.
+- [Facilitator](https://github.com/x402-bch/x402-bch-facilitator): Reference Facilitator service that verifies BCH payment payloads and maintains UTXO ledgers.
 - [Server](../server/): Example resource server that publishes BCH pricing metadata and delegates verification to the Facilitator.
 
 ## Troubleshooting
