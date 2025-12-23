@@ -608,5 +608,5 @@ Future support for SLP tokens or other BCH-based assets may be added through sch
 | Version | Date       | Changes                                                           | Author                    |
 | ------- | ---------- | ----------------------------------------------------------------- | ------------------------- |
 | v2.1    | 2025-12-23 | Protocol v2: CAIP-2 networks, restructured PaymentPayload/Required, ResourceInfo separation, extensions support, header name changes | Chris Troutner |
-| v0.1    | 2025-11-08 | Initial BCH adaptation draft derived from reference implementation | Chris Troutner   |
+| v1.0    | 2025-11-08 | Initial BCH adaptation draft derived from reference implementation | Chris Troutner   |
 
