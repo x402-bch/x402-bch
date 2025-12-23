@@ -2,11 +2,6 @@
 
 **Protocol Version**: 2.1
 
-**Note About v2.1**
-v2.1 describes the x402-bch protocol with appropriate updates to copy the changes in the x402 v2 protocol. Where as v1 and v2.1 use UTXO-based payment and debiting, this approach has been found to lead to a sub-optimal user experience (UX).
-
-v2.1 will be quickly followed by a v2.2 spec, which will replace the focus on UTXOs with a focus on BCH addresses. UTXO information will still be used, and signatures will be used to prove ownership of unique addresses. But the slight shifting of focus from UTXOs to addresses leads to a much better user experience in practice.
-
 **Document Scope**
 
 This specification defines the x402-bch protocol, an adaptation of the x402 internet-native payments standard for the Bitcoin Cash (BCH) blockchain. It details the BCH-specific data structures, message flows, verification rules, and Facilitator interfaces that enable HTTP 402-powered access to APIs and resources.
